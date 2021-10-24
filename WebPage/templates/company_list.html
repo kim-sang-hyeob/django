@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% block title %} 회사 리스트 출력 {% endblock %}
+
+
+
+{% block content %}
+<h1>회사 리스트 출력하기 </h1>
+<table border="1">
+    <tr>
+        <th>회사이름</th>
+        <th>회사 대표</th>
+        <th>설립 연도</th>
+        <th>지역</th>
+        <th>전화번호</th>
+        <th>이메일 주소</th>
+        <th>홈페이지</th>
+    </tr>
+
+    {% for company in company_list_all %}
+    <tr>
+        <td>{{ company.company_name}}</td>
+        <td>{{ company.ceo_of_company}}</td>
+        <td>{{ company.year_of_establishment}}</td>
+        <td>{{ company.area}}</td>
+        <td>{{ company.number}}</td>
+        <td>{{ company.email_address}}</td>
+        <td>{{ company.homepage}}</td>
+    </tr>
+    {% endfor %}
+
+</table>
+
+
+
+{% endblock%}
+
