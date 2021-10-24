@@ -3,7 +3,10 @@ from django.db import models
 # Create your models here.
 
 class Company_Data(models.Model):
-    '''회사 정보 '''
+    '''회사 정보 
+    추가해야될 내용 : 카테고리 , 좌표 
+
+    '''
 
     # 검색 기능에는 회사이름 , 지역 , 속한 제품명 3가지를 통해서 구현할 예정임 -> 어떤식으로 모델을 나누는게 좋을지 아직 못정함
 
@@ -44,3 +47,17 @@ class Company_Data(models.Model):
     introduce_company=models.TextField(
         verbose_name='회사 소개'
     )#제한 자체를 두지 않기 위해서 Textfield 사용.
+
+class Product(models.Model):
+    ''' 
+    회사 제품 
+    위의 company_data 와 1:n관계를 맺고있도록 설정.
+    
+    제품이름 / 카테고리 / 가격 /관계표시 
+
+    추가할 내용 : 사진업로드 
+    '''
+    product_name=models.CharField(max_length=100)
+    category = models.CharField(max_length=500)
+    price = models.CharField(max_length=50)
+    post = models.ForeignKey(to=Company_Data , on_delete=models.CASCADE,)

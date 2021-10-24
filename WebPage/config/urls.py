@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path
 
-from mainapp.views import company_list, mainpage
+from mainapp.views import company_list, mainpage, company_detail
 
 
 urlpatterns = [
@@ -24,5 +24,6 @@ urlpatterns = [
 
     path('', mainpage , name="mainpage"),
     path('company_list/', company_list , name='company_list'),
+    path('<int:id>', company_detail , name='company_detail'),
 
 ]
