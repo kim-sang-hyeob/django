@@ -61,3 +61,7 @@ class Product(models.Model):
     category = models.CharField(max_length=500)
     price = models.CharField(max_length=50)
     post = models.ForeignKey(to=Company_Data , on_delete=models.CASCADE,)
+    # 카테고리 + 이미지파일
+    category = models.CharField(max_length=50)
+    image = models.ImageField(upload_to='images/' , null=True)
+    # null=True? 

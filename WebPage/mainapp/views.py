@@ -18,8 +18,5 @@ def company_detail(request,id):
     company_id = Company_Data.objects.get(id=id)
     product = Product.objects.all()
     context ={'company_id':company_id ,'product':product}
-    return render(request, 'company_product.html', context) 
-
-
-def product_list(request):
-    pass 
+    return render(request, 'company_product.html', context)
+    

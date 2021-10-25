@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'mainapp',
     'login',
+    'photolog',
 ]
 
 MIDDLEWARE = [
@@ -122,7 +123,22 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+
+
+
+
+
+
+
+
+# 추가한 것들 
+
+STATICFILES_DIRS = [os.path.join(BASE_DIR, "static")]
+# MEDIA 파일에 대한 URL PREFIX
+MEDIA_URL = "/media/"
+MEDIA_ROOT = os.path.join(BASE_DIR, "media") # 업로드 된 파일을 저장할 디렉토리 경로
