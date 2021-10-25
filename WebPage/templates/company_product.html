@@ -1,9 +1,36 @@
 {% extends 'base.html' %}
 
+{% block title %} 회사 제품 출력  {% endblock %}
+
+<!--
+    추가내용  : product 의 post_id 를 확인한 후에 리스트를 출력해야하는데..
+-->
 
 {% block content %}
-<h1> 물품 리스트를 나열합니다 .</h1>
 
+<h1>회사 리스트 출력하기 </h1> <!-- 출력 : Company_Data object (1)-->
+
+<table border="1">
+    <tr>
+        <th>제품 이름</th>
+        <th>제품 가격</th>
+        <th>제품 카테고리</th>
+    </tr>
+
+    {% for p in product %}
+    {% if company_id.id == p.post_id %}
+    <tr>
+        <td>{{ p.product_name }}</td>
+        <td>{{ p.category }}</td>
+        <td>{{ p.price }}</td>
+    </tr>
+    {% endif %}
+{% endfor %}
+
+
+
+</table>
 
 {% endblock%}
+
 

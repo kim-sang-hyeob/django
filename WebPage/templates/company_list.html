@@ -23,7 +23,7 @@
 
     {% for company in company_list_all %}
     <tr>
-        <td><a href="{% url 'company_detail' company.id %}">{{company.company_name}}</a></td> <!-- 우리가 불러올 id 값 들고오기 -->
+        <td><a href="{% url 'company_detail' company.id %}">{{company.company_name}}</a></td>
         <td>{{ company.ceo_of_company}}</td>
         <td>{{ company.year_of_establishment}}</td>
         <td>{{ company.area}}</td>

@@ -10,7 +10,9 @@
     <header>
         <nav>
             <ul>
-                <li><a href="">홈</a></li>
+                <li><a href="">로고 </a></li>
+                <li><a href="">제품 검색</a></li>
+                <li><a href="">개인 페이지</a></li>
                 {% if user.is_authenticated %}
                     <li><a href="">로그아웃</a></li>
                 {% else %}
@@ -23,5 +25,12 @@
 {% block content %}{% endblock%}
 
 {% block javascript %}{% endblock %}
+<br>
+<br>
+<br>
+<br>
+<footer>
+    <a href="">footer 자리입니다.</a>
+</footer>
 </body>
 </html>
