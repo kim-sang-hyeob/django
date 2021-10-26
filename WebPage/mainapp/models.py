@@ -5,7 +5,6 @@ from django.db import models
 class Company_Data(models.Model):
     '''회사 정보 
     추가해야될 내용 : 카테고리 , 좌표 
-
     '''
 
     # 검색 기능에는 회사이름 , 지역 , 속한 제품명 3가지를 통해서 구현할 예정임 -> 어떤식으로 모델을 나누는게 좋을지 아직 못정함
