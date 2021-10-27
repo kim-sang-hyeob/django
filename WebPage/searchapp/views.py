@@ -9,11 +9,12 @@ def search(request):
     search_key = request.GET.get('search_key')
 
     if search_key :
-        c_list=Company_Data.objects.filter(
-        Q(company_name=search_key) |
-        Q(number=search_key) |
-        Q(area=search_key)
+        search_key=Company_Data.objects.filter(
+        Q(company_name__icontains=search_key) |
+        Q(number__icontains=search_key) |
+        Q(area__icontains=search_key)
     )
-        return render(request , 'search.html' , c_list)
+        context={'search_key':search_key}
+        return render(request , 'search.html' , context)
     else :
-        redirect('mainpage')
+        return redirect('/')

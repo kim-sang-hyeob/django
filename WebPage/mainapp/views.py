@@ -13,7 +13,7 @@ def company_list(request):
     context={'company_list_all':company_list_all}
     return render(request ,'company_list.html' , context)
 
-# 여기서 막힘.
+
 def company_detail(request,id):
     company_id = Company_Data.objects.get(id=id)
     product = Product.objects.all()

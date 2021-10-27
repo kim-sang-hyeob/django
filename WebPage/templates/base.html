@@ -11,7 +11,7 @@
         <nav>
             <ul>
                 <li><a href="">로고 </a></li>
-                <li><a href="">제품 검색</a></li>
+                <li><a href="{% url 'searchapp:search' %}">제품 검색</a></li>
                 <li><a href="">개인 페이지</a></li>
                 {% if user.is_authenticated %}
                     <li><a href="">로그아웃</a></li>

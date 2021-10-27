@@ -8,5 +8,11 @@
 
 
 
+<form action="{% url 'searchapp:search' %}" method="get">
+    <label for="search_key">검색하기</label>
+    <input type="text" name="search_key" label="search_key">
+    <input type="submit" >
+</form>
+
 
 {% endblock %}

@@ -6,10 +6,26 @@
 
 
 {% block content %}
+
     <form action="" mehtod="get">
+        <label for="search_bar"> 검색(페이지 바뀜)</label>
         <input type="text" name="search_key">
-        <input type="submit" >
+        <input type="submit">
     </form>
+
+    <div class="search_list">
+        <table>
+        {% for s in search_key %}
+            <tr>
+                <td><a href="">{{s.company_name}}</a></td>
+                <td>{{ s.number }}</td>
+                <td>{{ s.area }}</td>
+            </tr>
+
+        </table>
+        {% endfor %}
+    </div>
+
 
 
 
