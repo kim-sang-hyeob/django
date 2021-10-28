@@ -17,5 +17,16 @@ search.html 에서  20line 에서
 css & 디자인
 
 
+<clone 으로 받고 나서 해야 할 것>
+1. venv 생성 
+python -m venv venv 
+2. pip 업그레이드 / django 설치
+pip install --upgrade pip
+pip install django
+3. pillow 설치 
+4. migrations
+python manage.py migrations
+python manage.py migrate
+6. runserver 확인
 
 
