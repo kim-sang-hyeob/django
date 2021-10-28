@@ -24,7 +24,8 @@ python -m venv venv
 pip install --upgrade pip
 pip install django
 3. pillow 설치 
-4. migrations
+python -m pip install Pillow
+5. migrations
 python manage.py migrations
 python manage.py migrate
 6. runserver 확인
