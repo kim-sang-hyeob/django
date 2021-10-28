@@ -16,7 +16,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path,include
 
-from mainapp.views import company_list, mainpage, company_detail
+from mainapp.views import company_list, mainpage, company_detail , checkbox
 from django.conf.urls.static import static
 from django.conf import settings  # 배웠을 때는 필요 없어 보였는데 막상 없으니까 아래 static 에서 settings 를 인식하지 못함.
 
@@ -26,6 +26,8 @@ urlpatterns = [
     path('', mainpage , name="mainpage"),
     path('company_list/', company_list , name='company_list'),
     path('<int:id>', company_detail , name='company_detail'),
+    
+    path('company_list/checkbox', checkbox , name="checkbox"),
 
     path('searchapp/',include('searchapp.urls')),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

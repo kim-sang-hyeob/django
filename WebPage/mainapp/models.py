@@ -1,6 +1,8 @@
 from django.db import models
 
 # Create your models here.
+from django.urls import reverse
+
 
 class Company_Data(models.Model):
     '''회사 정보 
@@ -47,6 +49,21 @@ class Company_Data(models.Model):
         verbose_name='회사 소개'
     )#제한 자체를 두지 않기 위해서 Textfield 사용.
 
+    company_image = models.ImageField(
+        upload_to='images/' , 
+        default='DEFAULT VALUE',
+        null=True)
+
+class Category(models.Model):
+    name = models.CharField(max_length=50, )
+    slug = models.SlugField(max_length=200, allow_unicode=True, default='DEFAULT VALUE',unique=True)
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Categories'
+
 class Product(models.Model):
     ''' 
     회사 제품 
@@ -59,6 +76,11 @@ class Product(models.Model):
     product_name=models.CharField(max_length=100)
     category = models.CharField(max_length=500)
     price = models.CharField(max_length=50)
-    post = models.ForeignKey(to=Company_Data , on_delete=models.CASCADE,)
     category = models.CharField(max_length=50)
-    image = models.ImageField(upload_to='images/' , null=True)
+    image = models.ImageField(upload_to='images/' , default='DEFAULT VALUE',null=True)
+
+    post = models.ForeignKey(to=Company_Data , null=True,on_delete=models.CASCADE,)
+    category = models.ForeignKey(to=Category, null=True, on_delete=models.SET_NULL,)
+
+    def __str__(self):
+        return self.product_name

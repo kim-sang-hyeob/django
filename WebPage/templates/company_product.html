@@ -32,6 +32,7 @@
         <td>{{ company_id.homepage}}</td>
     </tr>
     
+    
 
 </table>
 
@@ -51,8 +52,8 @@
     {% if company_id.id == p.post_id %}
     <tr>
         <td>{{ p.product_name }}</td>
-        <td>{{ p.category }}</td>
         <td>{{ p.price }}</td>
+        <td>{{ p.category }}</td>
     </tr>
     {% endif %}
 {% endfor %}

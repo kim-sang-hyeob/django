@@ -4,6 +4,10 @@ from django.shortcuts import redirect, render
 from django.db.models import Q
 from mainapp.models import Company_Data
 
+
+
+
+
 def search(request):
     company_list = Company_Data.objects.all()
     search_key = request.GET.get('search_key')
@@ -17,4 +21,4 @@ def search(request):
         context={'search_key':search_key}
         return render(request , 'search.html' , context)
     else :
-        return redirect('/')
+        return redirect('company_list')
