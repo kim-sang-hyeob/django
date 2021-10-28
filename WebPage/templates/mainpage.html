@@ -4,9 +4,11 @@
 
 {% block content %}
 
-<a href="{% url 'company_list' %}" >회사 리스트 보기</a>
 
+<img src="/static/image/ex.jpg" alt="main text" width="200" height="200"><br>
+<img src="/static/image/ex.jpg" alt="main image" width="200" height="200"><br>
 
+<a href="{% url 'company_list' %}" >회사 리스트 보기</a><br>
 
 <form action="{% url 'searchapp:search' %}" method="get">
     <label for="search_key">검색하기</label>

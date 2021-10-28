@@ -8,11 +8,23 @@
 
 -->
 
+
+
 {% block content %}
-<h1>회사 리스트 출력하기 </h1>
+
+<form action="{% url 'searchapp:search' %}" method="get">
+    <label for="search_key">검색하기</label>
+    <input type="text" name="search_key" label="search_key">
+    <input type="submit" >
+</form>
+
+<p> category </p>
+
+
+<h1>회사 리스트 출력 (이름을 제외하고는 안나오도록 수정 / 이미지 파일 추가 / 페이징 추가)</h1>
 <table border="1">
     <tr>
-        <th >회사이름</th>
+        <th>회사이름</th>
         <th>회사 대표</th>
         <th>설립 연도</th>
         <th>지역</th>

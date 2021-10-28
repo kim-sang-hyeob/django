@@ -10,8 +10,9 @@
     <header>
         <nav>
             <ul>
-                <li><a href="">로고 </a></li>
-                <li><a href="{% url 'searchapp:search' %}">제품 검색</a></li>
+                <a>헤더 자리입니다. </a>
+                <li><img src="" alt="logo" >로고</li>
+                <li><a href="{% url 'company_list' %}">제품 검색(회사 리스트보기)</a></li>
                 <li><a href="">개인 페이지</a></li>
                 {% if user.is_authenticated %}
                     <li><a href="">로그아웃</a></li>
@@ -29,8 +30,11 @@
 <br>
 <br>
 <br>
+
+
+
 <footer>
-    <a href="">footer 자리입니다.</a>
+    <a href="">footer .</a>
 </footer>
 </body>
 </html>
