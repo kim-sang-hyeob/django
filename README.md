@@ -29,3 +29,4 @@ python manage.py migrate
 7. 데이터 새로 넣어주기(admin에서 넣어주면 됨/company_data , category , product, 등등...)
 
 
+++ mainpage img="" 로 수정해야함
