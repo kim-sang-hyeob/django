@@ -22,8 +22,7 @@ pip install --upgrade pip
 pip install django
 3. pillow 설치 
 python -m pip install Pillow
-5. migrations
-python manage.py migrate
+5.python manage.py migrate
 6. python manage.py createsuperuser
 6. runserver 확인
 7. 데이터 새로 넣어주기(admin에서 넣어주면 됨/company_data , category , product, 등등...)
