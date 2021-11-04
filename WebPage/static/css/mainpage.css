@@ -1,19 +1,19 @@
 
-
-#maintext{
+.c {
     position: relative;
-    margin:100px;
-    margin-right:200px;
-
+    width: 400x;
+    height: 0px;
+    font-size: 30px;
+    margin-top: 100px;
 }
+
 
 #mainimg{
     position: relative;
-
+    margin-left: 600px;
 }
 
-.main{
-    display: inline-block;
-    width: 200px;
-    height: 300px;
+#c{
+    position: absolute;
+    margin-top: 100px;
 }
