@@ -1,40 +1,114 @@
 <!DOCTYPE html>
-<html lang="ko">
+{% load static %}
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}{% endblock %} | 멋직</title>
+    <title>{% block title %}{% endblock %}</title>
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untitled</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/2.0.1/css/ionicons.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    {% block extrahead %}
+    {% endblock %}
 </head>
+
+
+
+
 <body>
-    <header>
-        <nav>
-            <ul>
-                <a>헤더 자리입니다. </a>
-                <li><img src="" alt="logo" >로고</li>
-                <li><a href="{% url 'company_list' %}">제품 검색(회사 리스트보기)</a></li>
-                <li><a href="">개인 페이지</a></li>
-                {% if user.is_authenticated %}
-                    <li><a href="">로그아웃</a></li>
-                {% else %}
-                    <li><a href="">로그인</a></li>
-                    <li><a href="">회원가입</a></li>
-                {% endif %}
-            </ul>
-        </nav>
-    </header>
-{% block content %}{% endblock%}
+    
+    <div class="wrapper">
+        <header class="header">
+            <nav class="navbar navbar-expand-lg py-3">
+                <div class="container"><a href="{% url 'mainpage' %}" class="navbar-brand text-uppercase font-weight-bold">LOGO</a>
+                    <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    
+                    <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active"><a href="{% url 'mainpage' %}" class="nav-link text-uppercase font-weight-bold">Home <span class="sr-only"></span></a></li>
+                            <li class="nav-item"><a href="{% url 'company_list' %}" class="nav-link text-uppercase font-weight-bold">제품 검색</a></li>
 
-{% block javascript %}{% endblock %}
-<br>
-<br>
-<br>
-<br>
+                            <li class="nav-item">
+                            {% if user.is_authenticated %}
+                                <button type="button" class="btn btn-outline-primary ">회원가입</button>
+                            {% else %}
+                                <div class="navbar-brand o-topbar1__brand">
+                                    <li class="nav-item active"><a href="{% url 'mainpage' %}" class="nav-link text-uppercase font-weight-bold">개인페이지<span class="sr-only">(</span></a></li>
+                                </div>
+                                <button type="button" class="btn btn-outline-primary">로그인</button>
+                                <a href="" class="nav-link btn btn-primary text-light font-weight-bold o-topbar1__ctaButton">회원가입</a>
+                            {% endif %}
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+        
+                
+            <div id="maincontent">
+                {% block content %}{% endblock%}
+                {% block javascript %}{% endblock %}
+            </div>
 
 
 
-<footer>
-    <a href="">footer .</a>
-</footer>
+    </div> 
+
+    
+
+
+
+<!-- FOOTER -->
+    <div class="footer-dark">
+        <footer>
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="#"></a></li>
+                            <li><a href="#">Development</a></li>
+                            <li><a href="#"></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="#">Company</a></li>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3>B2B</h3>
+                        <p></p>
+                            It makes it easy to search for medium-sized Korean companies.
+                        </p>
+                    </div>
+                    <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+                </div>
+                <p class="copyright"> B2B/멋직 © 2021</p>
+            </div>
+        </footer>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    
 </body>
+
+
+
+
 </html>
+
+

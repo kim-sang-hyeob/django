@@ -1,0 +1,19 @@
+
+
+#maintext{
+    position: relative;
+    margin:100px;
+    margin-right:200px;
+
+}
+
+#mainimg{
+    position: relative;
+
+}
+
+.main{
+    display: inline-block;
+    width: 200px;
+    height: 300px;
+}

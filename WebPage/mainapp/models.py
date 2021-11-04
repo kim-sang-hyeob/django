@@ -77,7 +77,7 @@ class Product(models.Model):
     category = models.CharField(max_length=500)
     price = models.CharField(max_length=50)
     category = models.CharField(max_length=50)
-    image = models.ImageField(upload_to='images/' , default='DEFAULT VALUE',null=True)
+    image = models.ImageField(upload_to='images/' , default='DEFAULTVALUE',null=True)
 
     post = models.ForeignKey(to=Company_Data , null=True,on_delete=models.CASCADE,)
     category = models.ForeignKey(to=Category, null=True, on_delete=models.SET_NULL,)

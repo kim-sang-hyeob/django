@@ -1,14 +1,19 @@
 {% extends 'base.html' %}
+
 {% block title %} 메인페이지 입니다 {% endblock %}
+<head>
+    {% load static %}
+    {% block extrahead %}
+    <link rel="stylesheet" href="{% static 'css/mainpage.css' %}">
+    {% endblock %}
+</head>
+
 
 
 {% block content %}
 
-
-<img src="/static/image/ex.jpg" alt="main text" width="200" height="200"><br>
-<img src="/static/image/ex.jpg" alt="main image" width="200" height="200"><br>
-
-<a href="{% url 'company_list' %}" >회사 리스트 보기</a><br>
+<img src="static/image/ex.jpg" alt="main text" width="200" height="200" id="maintext" class="main"><br>
+<img src="static/image/ex.jpg" alt="main image" width="200" height="200" id="mainimg" class="main"><br>
 
 
 <form action="{% url 'searchapp:search' %}" method="get">
