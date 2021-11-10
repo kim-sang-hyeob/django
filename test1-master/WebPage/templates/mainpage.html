@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block title %} 메인페이지 입니다 {% endblock %}
+<head>
+    {% load static %}
+    {% block extrahead %}
+    <link rel="stylesheet" href="{% static 'css/mainpage.css' %}">
+    {% endblock %}
+</head>
+
+
+
+{% block content %}
+
+<div class="c">
+    <img src="static/image/maintext.jpg" alt="main text"  id="maintext"><br>
+    
+    <div class="search-c">
+    <form action="{% url 'company_list' %}" method="get" >
+        <label for="search_key"></label>
+        <input type="text"  name="search_key" label="search_key" placeholder="원하는 분야의 제조업체를 검색해 보세요" id="seacrh"
+        size="35"> 
+    </form>
+</div>
+</div>
+
+
+<img src="static/image/mainimg.jpg" alt="main image"  id="mainimg"><br>
+
+
+
+
+{% endblock %}

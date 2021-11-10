@@ -1,0 +1,19 @@
+
+.c {
+    position: relative;
+    width: 400x;
+    height: 0px;
+    font-size: 30px;
+    margin-top: 100px;
+}
+
+
+#mainimg{
+    position: relative;
+    margin-left: 600px;
+}
+
+#c{
+    position: absolute;
+    margin-top: 100px;
+}

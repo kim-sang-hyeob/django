@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block title %} 검색폼 {% endblock %}
+
+
+<!--  사실상 이페이지는 안씀 .-->
+
+{% block content %}
+
+<div>
+    <form action="" method="get">
+    <div class="input-group mb-3">
+        <label for="search_key" ></label>
+        <input type="text" class="form-control" name="search_key" label="search_key" value = "" placeholder="원하는 분야의 제조업체나 비슷한 제품을 검색해보세요" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <input class="btn btn-outline-secondary" type="submit" id="button-addon2" value = "검색하기">
+    </div>
+    </form>
+</div>
+
+    <div class="search_list">
+        <table>
+        {% for company in search_key %}
+            <div class="col">
+                <div class="card" style="width: 18rem;">
+                    <img src="{{ company.company_image }}" class="card-img-top" alt="...">
+                    <div class="card-body">
+                            <h5 class="card-title">{{ company.company_name }}</h5>
+                            <p class="card-text">CALL : +82{{ company.number }}</p>
+                            <p class="card-text">ORNER : {{ company.ceo_of_company }}</p>
+                            <a href="{% url 'company_detail' company.id %}" class="btn btn-primary">상세정보</a>
+                    </div>
+                </div>
+        </table>
+        {% endfor %}
+
+
+    </div>
+
+
+
+
+{% endblock%}

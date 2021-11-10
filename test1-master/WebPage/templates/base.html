@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="ko">
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!--css-->
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    {% block extrahead %}
+    {% endblock %}
+    <title></title>
+</head>
+
+
+
+<body>
+    <div class="wrapper">
+        <header class="header">
+            <nav class="navbar navbar-expand-lg py-3">
+                <div class="container"><a href="{% url 'mainpage' %}" class="navbar-brand text-uppercase font-weight-bold">YEOGIDA</a>
+                    <button type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation" class="navbar-toggler navbar-toggler-right">
+                        <i class="fa fa-bars"></i>
+                    </button>
+                    
+                    <div id="navbarSupportedContent" class="collapse navbar-collapse">
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item active"><a href="{% url 'mainpage' %}" class="nav-link text-uppercase font-weight-bold">Home <span class="sr-only"></span></a></li>
+                            <li class="nav-item"><a href="{% url 'company_list' %}" class="nav-link text-uppercase font-weight-bold">회사 찾기</a></li>
+
+                            <li class="nav-item">
+                            {% if user.is_authenticated %}
+                                <button type="button" class="btn btn-outline-primary">로그인</button>
+                                <button type="button" class="btn btn-outline-primary ">회원가입</button>
+                            {% else %}
+                                <div class="navbar-brand o-topbar1__brand">
+                                    <li class="nav-item active"><a href="{% url 'mainpage' %}" class="nav-link text-uppercase font-weight-bold">개인페이지<span class="sr-only">(</span></a></li>
+                                </div>
+                                <button type="button" class="btn btn-outline-primary">로그인</button>
+                                <a href="" class="nav-link btn btn-primary text-light font-weight-bold o-topbar1__ctaButton">회원가입</a>
+                            {% endif %}
+                            </li>
+                            
+                        </ul>
+                    </div>
+                </div>
+            </nav>
+        </header>
+
+    <div class="container">
+        {% block content %}
+        {% endblock %}
+    </div>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous">
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous">
+    </script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous">
+    </script>
+    <header>
+        <nav>
+            <ul>
+
+            </ul>
+        </nav>
+    </header>
+
+{% block javascript %}{% endblock %}
+<br>
+<br>
+<br>
+<br>
+
+
+
+
+    <footer class="footer-dark">
+            <div class="container">
+                <div class="row">
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>Services</h3>
+                        <ul>
+                            <li><a href="#"></a></li>
+                            <li><a href="#">Development</a></li>
+                            <li><a href="#"></a></li>
+                        </ul>
+                    </div>
+                    <div class="col-sm-6 col-md-3 item">
+                        <h3>About</h3>
+                        <ul>
+                            <li><a href="#">Company</a></li>
+                            <li><a href="#">Team</a></li>
+                            <li><a href="#">Careers</a></li>
+                        </ul>
+                    </div>
+                    <div class="col-md-6 item text">
+                        <h3>B2B</h3>
+                        <p></p>
+                            It makes it easy to search for medium-sized Korean companies.
+                        </p>
+                    </div>
+                    <div class="col item social"><a href="#"><i class="icon ion-social-facebook"></i></a><a href="#"><i class="icon ion-social-twitter"></i></a><a href="#"><i class="icon ion-social-snapchat"></i></a><a href="#"><i class="icon ion-social-instagram"></i></a></div>
+                </div>
+                <p class="copyright"> B2B/멋직 © 2021</p>
+            </div>
+        </footer>
+    
+</body>
+</html>

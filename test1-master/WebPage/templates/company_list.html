@@ -1,0 +1,112 @@
+{% extends 'base.html' %}
+
+{% block title %} 회사 리스트 출력 {% endblock %}
+
+
+{% block content %}
+<!DOCTYPE html>
+<html>
+<head>
+    {% load static %}
+    {% block extrahead %}
+    <link rel="stylesheet" href="{% static 'css/company_list.css' %}">
+    {% endblock %}
+
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Products</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+
+<body>
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+<div>
+    <form action="" method="get">
+    <div class="input-group mb-3">
+        <label for="search_key" ></label>
+        <input type="text" class="form-control" name="search_key" label="search_key" value = "{{searchs_key }}" placeholder="원하는 분야의 제조업체나 비슷한 제품을 검색해보세요" aria-label="Recipient's username" aria-describedby="button-addon2">
+        <input class="btn btn-outline-secondary" type="submit" id="button-addon2" value = "검색하기">
+    </div>
+    </form>
+</div>
+
+<div>
+<div class="container">
+    <h3 class="h3"> Companys </h3>
+    <div class="row">
+    {% for company in page_obj %}
+        <div class="col-md-3 col-sm-6">
+            <div class="product-grid6">
+                <div class="product-image6">
+                    <a href="{% url 'company_detail' company.id %}">
+                        <img class="pic-1" src="{{ company.company_image }}" width="250" height="250">
+                    </a>
+                </div>
+                <div class="product-content">
+                    <h3 class="title"><a href="#">{{ company.company_name }}</a></h3>
+                    <div class="price">Year | {{ company.year_of_establishment }}</div>
+                    <div class="price">Location | {{ company.area }}</div>
+                </div>
+                <ul class="social">
+                <h3 class="title"><a href="#">{{ company.company_name }}</a></h3>
+                    <li><a href="{% url 'company_detail' company.id %}" data-tip="상세 기업정보"><i class="fa fa-search"></i></a></li>
+                  
+                    <li><a href="" data-tip="관심기업 추가하기"><i class="fa fa-shopping-bag"></i></a></li>
+                </ul>
+            </div>
+        </div>
+  
+    {% endfor %}
+    <!-- 사실 이건 검색결과가 아니고 전체 등록 업체 보기임 필터링해서 보여주는걸로 바꿔야함-->
+</body>
+</div>
+
+    <ul class ="pagination justify-content-center">
+        {% if page_obj.has_previous %}
+        <li class="page-item">
+            <a class= "page-link" href="?page={{ page_obj.previous_page_number }}">이전</a>
+        </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="#"> 이전</a>
+        </li>
+        {% endif %}
+        {% for page_number in page_obj.paginator.page_range %}
+
+        {% if page_number >= page_obj.number|add:-5 and page_number <= page_obj.number|add:5 %}
+            {% if page_number == page_obj.number %}
+            <li class= "page-item active" aria-current="page">
+                <a class ="page-link" href="?page={{page_number}}">
+                    {{page_number}}
+                </a>
+            </li>
+            {% else %}
+            <li class="page-item">
+                <a class ="page-link" href="?page={{page_number}}">{{page_number}}</a>
+            </li>
+            {% endif %}
+        {% endif %}    
+        {% endfor %}
+        {% if page_obj.has_next %}
+            <li class= "page-item">
+                <a class ="page-link" href="?page={{page_obj.next_page_number}}">다음</a>
+            </li>
+        {% else %}
+        <li class="page-item disabled">
+            <a class="page-link" tabindex="-1" aria-disabled="true" href="#"> 다음</a>
+        </li>
+        {% endif %}
+    </ul>
+
+{% endblock%}
+</html>
+
+
