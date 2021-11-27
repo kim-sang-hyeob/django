@@ -5,11 +5,11 @@
 이래저래 결과물이 조금 아쉽다
 
 <다시 참조할 부분>
-1. Queryset ==> 검색기능 ( https://docs.djangoproject.com/en/3.2/ref/models/querysets/ )
-2. 페이징 기능 구현 
+1. Queryset ==> 검색기능 ( https://docs.djangoproject.com/en/3.2/ref/models/querysets/ ) (이건 queryset 배운후에 다시 해결함 )
+2. 페이징 기능 구현 ( 다른 분이 구현)
 3. 모델이 조금 허접한점. -> 사용자 기능 추가 & n:m 기능을 추가해 보기 위해서 개인페이지 설정
-4. 디자인 적인 부분에서 조금 마음에 안들거나 이미 구현한 부분에서 배울 부분이 많음
-5. 각각 좌표를 변혼해서 넣는다던지 사진을 여러개 첨가 할 수 있다던지 조금더 디테잃한 부분의 수정이필요해보임. 
+4. 디자인 적인 부분에서 조금 마음에 안들거나 이미 구현한 부분에서 배울 부분이 많음 ( 다른분이 해결 )
+5. 각각 좌표를 변혼해서 넣는다던지 사진을 여러개 첨가 할 수 있다던지 조금더 디테잃한 부분의 수정이필요해보임.
 
 
 
@@ -26,5 +26,3 @@ python -m pip install Pillow
 6. runserver 확인
 7. 데이터 새로 넣어주기(admin에서 넣어주면 됨/company_data , category , product, 등등...)
 
-
-++ mainpage img="" 로 수정해야함
